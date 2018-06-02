@@ -27,6 +27,12 @@ public class Ventaja extends Actor{
 			if(tecla =='v'){
 				velocidadVentaja=velocidadVentaja*2;
 			}		
+			if(tecla =='p') {
+				velocidadVentaja=0;
+			}
+			if(tecla == 'r') {
+				velocidadVentaja=1;
+			}
 	}
 	
     /**

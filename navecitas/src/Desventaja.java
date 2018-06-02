@@ -29,7 +29,13 @@ public class Desventaja extends Actor {
 			this.tecla=tecla;
 				if(tecla =='v'){
 					velocidadDesventaja=velocidadDesventaja*2;
-				}		
+				}	
+				if(tecla =='p') {
+					velocidadDesventaja=0;
+				}
+				if(tecla == 'r') {
+					velocidadDesventaja=1;
+				}
 		}
 		
 	    /**

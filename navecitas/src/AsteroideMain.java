@@ -91,7 +91,7 @@ public static void main (String[] args) throws InterruptedException  {
 	     Coordenada c4 = new Coordenada(150,100);						 // Coordenadas para la nave extraterrestre
 	     Coordenada c5 = new Coordenada(375,147);						 // Coordenadas para Roger el extraterrestre
 	     Coordenada c6 = new Coordenada(150,200);						 // Coordenadas para la Ventaja
-	     Coordenada c7 = new Coordenada(175,500);						 // Coordenadas para la Desventaja
+	     Coordenada c7 = new Coordenada(175,400);						 // Coordenadas para la Desventaja
 	     
 	     Rectangulo r1 = new Rectangulo(c1,40,50);  					 // Rectangulo donde dibujar la nave 1
 	     Rectangulo r2 = new Rectangulo(c1,40,50);						 // Rectangulo donde dibujar la nave 2 (ancho, alto)
@@ -152,9 +152,7 @@ public static void main (String[] args) throws InterruptedException  {
 		    	  m.add(a2);
 		    	  //m.add(bala1);
 		    	  m.add(ventaja);
-		    	  if(puntuacion > 1500) {
-		    		 // m.add(desventaja1);
-		    	  }
+		    	  m.add(desventaja);
 		    	  m.add(nave1);
 		      }catch(ExcepcionEscenarioLleno e){ } 	  
 	    }

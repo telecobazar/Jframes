@@ -27,7 +27,13 @@ public class Asteroide extends Actor {
 		this.tecla=tecla;
 			if(tecla =='v'){
 				velocidadAsteroide=velocidadAsteroide*2;
-			}		
+			}
+			if(tecla =='p') {
+				velocidadAsteroide=0;
+			}
+			if(tecla == 'r') {
+				velocidadAsteroide=-1;
+			}
 	}
 	
 	/**
