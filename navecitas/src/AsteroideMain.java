@@ -92,7 +92,7 @@ public static void main (String[] args) throws InterruptedException  {
 	     Coordenada c5 = new Coordenada(375,147);						 // Coordenadas para Roger el extraterrestre
 	     
 	     Rectangulo r1 = new Rectangulo(c1,60,50);  					 // Rectangulo donde dibujar la nave 1
-	     Rectangulo r2 = new Rectangulo(c1,80,90);						 // Rectangulo donde dibujar la nave 2 (ancho, alto)
+	     Rectangulo r2 = new Rectangulo(c1,60,50);						 // Rectangulo donde dibujar la nave 2 (ancho, alto)
 	     Rectangulo r3 = new Rectangulo(c2,40,40);						 // Rectangulo para pintar los asteroides  
 	     Rectangulo r4 = new Rectangulo(c3,40,40); 						 // Rectangulo para pintar los asteroides  
 	     Rectangulo r5 = new Rectangulo(c4,60,60);						 // Rectangulo para pintar una nave extraterrestre 
