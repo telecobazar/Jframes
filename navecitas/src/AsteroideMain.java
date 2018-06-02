@@ -90,6 +90,8 @@ public static void main (String[] args) throws InterruptedException  {
 	     Coordenada c3 = new Coordenada(500,100);						 // Coordenadas para el asteroide 2
 	     Coordenada c4 = new Coordenada(150,100);						 // Coordenadas para la nave extraterrestre
 	     Coordenada c5 = new Coordenada(375,147);						 // Coordenadas para Roger el extraterrestre
+	     Coordenada c6 = new Coordenada(100,200);						 // Coordenadas para la Ventaja
+	     Coordenada c7 = new Coordenada(175,500);						 // Coordenadas para la Desventaja
 	     
 	     Rectangulo r1 = new Rectangulo(c1,60,50);  					 // Rectangulo donde dibujar la nave 1
 	     Rectangulo r2 = new Rectangulo(c1,60,50);						 // Rectangulo donde dibujar la nave 2 (ancho, alto)
@@ -98,6 +100,9 @@ public static void main (String[] args) throws InterruptedException  {
 	     Rectangulo r5 = new Rectangulo(c4,60,60);						 // Rectangulo para pintar una nave extraterrestre 
 	     Rectangulo r6 = new Rectangulo(c5,100,100);					 // Rectangulo para pintar a Roger el extraterrestre
 	     Rectangulo r7 = new Rectangulo(c1,20,40);					     // Rectangulo para pintar la bala
+	     Rectangulo r8 = new Rectangulo(c6,20,40);                       // Rectangulo para la Ventaja
+	     Rectangulo r9 = new Rectangulo(c7,20,40);						 // Rectangulo para la Desventaja
+	     
 	     
 	  // Creamos las naves y asteroides 
    	  
@@ -108,6 +113,8 @@ public static void main (String[] args) throws InterruptedException  {
 	     Asteroide a3 = new Asteroide(r5, "a4.png",m,-1); // nave extraterrestre
 	     Asteroide a4 = new Asteroide(r6, "a5.png",m,-1); // Roger el extraterrestre 
 	     Bala bala1 = new Bala(r7,"rayo.png",m,1);
+	     Ventaja ventaja1= new Ventaja(r8,"Ventaja.png",m,1);        //Ventaja
+	     Ventaja desventaja1= new Ventaja(r9,"Desventaja.png",m,1);        //Desventaja
 	     boolean masPartidas = true;
 	     String si = "si";
 	     
@@ -144,6 +151,12 @@ public static void main (String[] args) throws InterruptedException  {
 		    	  m.add(a1);          // AÃ±adimos dos asteroides y una nave al escenario.
 		    	  m.add(a2);
 		    	  //m.add(bala1);
+		    	  if(puntuacion > 500) {
+		    		  //m.add(ventaja1);
+		    	  }
+		    	  if(puntuacion > 1500) {
+		    		 // m.add(desventaja1);
+		    	  }
 		    	  m.add(nave1);
 		      }catch(ExcepcionEscenarioLleno e){ } 	  
 	    }

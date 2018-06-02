@@ -14,9 +14,9 @@ public class Ventaja extends Actor{
     public Ventaja(Rectangulo rectangulo, String ficheroImagen, Escenario escenario, int velocidadAsteroide){
         super(rectangulo, ficheroImagen, escenario);
         if(velocidadVentaja >= 0){
-            throw new IllegalArgumentException("La velocidad es menor o igual a 0.");
-        }
-        //this.velocidadVentaja = velocidadVentaja;
+        	velocidadVentaja =2;
+        this.velocidadVentaja = velocidadVentaja;}
+        this.velocidadVentaja = velocidadVentaja;
     }
     /**
 	 * Procesa la tecla.

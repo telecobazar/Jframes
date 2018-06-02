@@ -16,7 +16,7 @@ public class Desventaja extends actor {
 	        if(velocidadDesventaja >= 0){
 	            throw new IllegalArgumentException("La velocidad es menor o igual a 0.");
 	        }
-	        //this.velocidadDesventaja = velocidadDesventaja;
+	        this.velocidadDesventaja = velocidadDesventaja;
 	    }
 
 		/**
