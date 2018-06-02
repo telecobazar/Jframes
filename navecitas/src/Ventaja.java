@@ -33,6 +33,7 @@ public class Ventaja extends Actor{
      * Realiza sus acciones.
      */
     public void actuar(){
+   
         Rectangulo r =this.getRectangulo();
         Coordenada c =r.getCoordenada();
         int aleatorio =(int)(Math.random()*460);
@@ -42,6 +43,8 @@ public class Ventaja extends Actor{
         else
             r.setCoordenada(c.getX()+velocidadVentaja, c.getY());
     }
+    	
+    
 	
 	
 	

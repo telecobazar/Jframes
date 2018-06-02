@@ -1,7 +1,8 @@
 
-public class Desventaja extends actor {
+public class Desventaja extends Actor {
 	
 	 private int velocidadDesventaja = 0;
+	 	char tecla
 	    int a;
 
 	    /**

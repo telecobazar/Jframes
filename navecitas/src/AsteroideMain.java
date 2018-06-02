@@ -152,7 +152,7 @@ public static void main (String[] args) throws InterruptedException  {
 		    	  m.add(a2);
 		    	  //m.add(bala1);
 		    	  if(puntuacion > 500) {
-		    		  //m.add(ventaja1);
+		    		  m.add(ventaja1);
 		    	  }
 		    	  if(puntuacion > 1500) {
 		    		 // m.add(desventaja1);
