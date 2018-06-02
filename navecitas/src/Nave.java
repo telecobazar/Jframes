@@ -91,7 +91,7 @@ public class Nave extends Actor{
 		}
 		if(tecla == 'r') {
 			velocidadNave=1;
-			velocidadNave=1;
+			velocidadNave2=-1;
 		}
 	}
 	

@@ -124,6 +124,7 @@ public static void main (String[] args) throws InterruptedException  {
 	     Ventana1 ventana1 = new Ventana1();
 	     Ventana2 ventana2 = new Ventana2(); 
 	     Ventana3 ventana3 = new Ventana3();
+	     Ventana4 ventana4 = new Ventana4();
 	     ventana1.open();
 	    
 	     
@@ -295,7 +296,7 @@ public static void main (String[] args) throws InterruptedException  {
          		 ventana3.dispose();
          		 
          		 
-         		// ventana4.open();
+         		ventana4.open();
          		System.out.println("*                                            *");
          		System.out.println("*    ¿Quiere actualizar las puntuaciones?    *");
          		System.out.println("*                                            *");

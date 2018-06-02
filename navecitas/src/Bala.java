@@ -67,7 +67,7 @@ public class Bala extends Actor{
 	 * Procesa la tecla
 	 * @param tecla Tecla a procesar
 	 */
-	public void procesarTecla1(char tecla){
+	public void procesarTecla(char tecla){
 		
 		this.tecla = tecla;
 		
@@ -88,6 +88,14 @@ public class Bala extends Actor{
 		}
 		if (tecla== 'c') {
 		velocidadBala2=-velocidadBala2*4;
+		}
+		if(tecla =='p') {
+			velocidadBala=0;
+			velocidadBala2=0;
+		}
+		if(tecla == 'r') {
+			velocidadBala=1;
+			velocidadBala2=-1;
 		}
 	}
 	
