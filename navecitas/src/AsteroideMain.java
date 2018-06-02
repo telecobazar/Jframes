@@ -4,6 +4,7 @@ import java.util.*;
 public class AsteroideMain {
 	  
 	public static int nivel=1;
+	public static int puntuacion;
 	
 	private static Iterator<Integer> i;
 
@@ -76,6 +77,8 @@ public class AsteroideMain {
 		
 public static void main (String[] args) throws InterruptedException  {
 	
+	
+	
 	File fichero = new File("fjugadores.txt");
 	
 	Set<Jugador> jugadores = new HashSet<Jugador>();
@@ -108,16 +111,14 @@ public static void main (String[] args) throws InterruptedException  {
 	     boolean masPartidas = true;
 	     String si = "si";
 	     
+	     
 	     SuperSimpleGUI ssgui=m.getGUI();
 	     
 	     Ventana1 ventana1 = new Ventana1();
-	     Ventana2 ventana2 = new Ventana2();
-	     
+	     Ventana2 ventana2 = new Ventana2(); 
+	     Ventana3 ventana3 = new Ventana3();
 	     ventana1.open();
 	    
-	    // System.out.println("*¿Desea cargar historial de jugadores? si/no *");
-	    
-	     Scanner sc = new Scanner(System.in);
 	     
 	     if(ventana1.respuesta.equals("si")){
 	    	  try{
@@ -128,6 +129,8 @@ public static void main (String[] args) throws InterruptedException  {
 	    	  finally{ File f = new File("fjugadores.txt");
 	    	  }
 	      }
+	     
+	     Scanner sc = new Scanner(System.in);
 	   
 	      while(masPartidas){
 	    	  boolean salir = false;
@@ -138,18 +141,19 @@ public static void main (String[] args) throws InterruptedException  {
 		     
 	    	  try{
 	    		
-		    	  m.add(a1);          // Añadimos dos asteroides y una nave al escenario.
+		    	  m.add(a1);          // AÃ±adimos dos asteroides y una nave al escenario.
 		    	  m.add(a2);
 		    	  //m.add(bala1);
 		    	  m.add(nave1);
 		      }catch(ExcepcionEscenarioLleno e){ } 	  
 	    }
 	    	  
-	    if (nivel==2) {
-	    	
+	    if (nivel==2) {   	
 	    	  try{
+	    		  m.getGUI().borrar();
+	     		  m.reinicializar();
 	    		  m.setActores();
-	    		  m.add(a1);          // Añadimos los actores al escenario.
+	    		  m.add(a1);          // AÃ±adimos los actores al escenario.
 	    		  m.add(a2);
 	    		  m.add(nave2);
 	    		  m.dibujar();
@@ -160,11 +164,14 @@ public static void main (String[] args) throws InterruptedException  {
 	    	  
 	    if (nivel==3) {
 	    	  try{
+	    		  m.getGUI().borrar();
+	     		  //m.reinicializar();
 				  m.setActores();
-	     		  m.add(a1);          // Añadimos los actores al escenario.
+	     		 // m.add(a1);          // AÃ±adimos los actores al escenario.
 		    	  m.add(a2);
 		    	  m.add(a3);
 		    	  m.borrarActor(nave1);
+		    	  m.borrarActor(a1);
 		    	  m.add(nave2);
 		  
 		      }catch(ExcepcionEscenarioLleno e){ }
@@ -172,95 +179,52 @@ public static void main (String[] args) throws InterruptedException  {
 	    }
 	    	  
 	    if (nivel==4) {
-	    	  try{
+	    	  try {
 				  m.setActores();
 				  m.add(a2);
 	    		  m.add(a3); 
 	    		  m.add(a4);
 	    		  m.add(nave2);
 	    	  }catch(ExcepcionEscenarioLleno e){ }	  
-	    }
- 	    	  
+	    }	
+	    
      		while (!salir) {
      			salir = m.ejecutarCicloJuego();	 // Ejecutamos el ciclo de Juego.
      			try{
      			m.dibujar();	                 // Dibujamos los actores en el escenario.
      			}catch(ExcepcionJuego e){}
 		}	
-     		
-     		System.out.println("*  Su puntuacion ha sido de "+ m.getPuntuacion());
-     		System.out.println("*                                            *");
-     		System.out.println("*  Introduzca nombre para su puntuación      *");
-     		
-     		String nombre = sc.nextLine();
- 			Jugador nuevo = new Jugador(nombre);
- 			
-     		if(!jugadores.contains(nuevo)){
-     			jugadores.add(nuevo);
-     		}
-     		System.out.println("**********************************************");
- 			System.out.println("*                                            *");
- 			System.out.println("*         Ranking de puntuaciones:           *");
- 			System.out.println("*                                            *");
-     		for(Jugador j : jugadores){
-     			if(j.equals(nuevo))
-     				j.getPuntuaciones().add(m.getPuntuacion());
-     			for(Integer i : j.getPuntuaciones()){
-     					System.out.println("* ->  Jugador: "+j.getNombre()+ " con puntuacion: "+i);
-     			}
-     		}
-     		System.out.println("*                                            *");
-     		System.out.println("*    ¿Quiere actualizar las puntuaciones?    *");
-     		System.out.println("*                                            *");
-     		String respuesta = sc.nextLine();
-     		
-     		if(respuesta.equals(si)){
-     			System.out.println("*                                            *");
-				System.out.println("*     Puntuaciones guardadas correctamente   *");
-				System.out.println("*                                            *");
-     			for(Jugador j : jugadores){
-     				int contador = 1;
-     				i=j.getPuntuaciones().iterator();
-     		
-					if(respuesta.equals("no")){
-         				while(i.hasNext()) {
-         					if(contador>3) {
-         						if(i!=null)
-         							j.getPuntuaciones().remove(i);
-         					}
-         				}contador=contador+1;
-					}			
-     			}
-     		}
-     		System.out.println("*                                            *");
-     		System.out.println("*         ¿Desea continuar jugando?          *");
-     		System.out.println("*                                            *");
-     		String respuesta2 = sc.nextLine();
-     		if(respuesta2.equals(si)){
+     		 ventana2.open();
+	    	 ventana2.dispose();
+	    	 
+     		System.out.println("*  Su puntuacion ha sido de "+  m.getPuntuacion());
+     	     		
+     		if(ventana2.respuesta.equals("si")){
      			masPartidas = true;
      			m.getGUI().borrar();
-     			m.reinicializar();
      		}else
      		{
+    		     
+    		     Scanner scaner = new Scanner(System.in);
+
      			System.out.println("*                                            *");
      			System.out.println("*   ¿Desea exportar fichero de jugadores?    *");
      			System.out.println("*                                            *");  
-     			  
-     			  	if(sc.nextLine().equals(si)){
+     			  	if(scaner.nextLine().equals(si)){
      			  		try{
      			  			guardarJugadores("fjugadores.txt", jugadores);
      			  		}catch(IOException e){e.getMessage();}	
      			  }
-     			  	
+       			  scaner.close(); 			
+
      			  	System.out.println("*                                            *");  
  			  		System.out.println("*   Fichero exportado satisfactoriamente     *");
  			  		System.out.println("*                                            *");
      			  	System.out.println("**********************************************");
      			  	System.out.println("*                                            *");
-     			  	System.out.println("*  ¡¡ Ahora el universo estará tranquilo !!  *");
+     			  	System.out.println("*    Ahora el universo estara  tranquilo !!  *");
      			  	System.out.println("*                                            *");
      			  	System.out.println("**********************************************");
-     			
      			System.exit(0);
      			
      		}
@@ -268,16 +232,15 @@ public static void main (String[] args) throws InterruptedException  {
      		if(masPartidas) {
      		
      			nivel++;
-     			
-     			System.out.println("**********************************************");
-     			System.out.println("*                                            *");
-     			System.out.println("*         Iniciando el NIVEL->"+nivel+"              *");
-     			System.out.println("*                                            *");
-
+     			if (nivel<5) {
+     				System.out.println("**********************************************");
+     				System.out.println("*                                            *");
+     				System.out.println("*         Iniciando el NIVEL-> "+nivel+"              *");
+     				System.out.println("*                                            *");
+     			}
      		}
      		
      		if (nivel==2) {
-     			System.out.println("*                                            *");
      			System.out.println("*     Se ha desbloqueado una nueva nave      *");
      			System.out.println("*                                            *");
      			System.out.println("**********************************************");
@@ -285,7 +248,6 @@ public static void main (String[] args) throws InterruptedException  {
      		
      		
      		if (nivel==3) {
-         		System.out.println("*                                            *");
          		System.out.println("*   Se ha desbloqueado una nueva galaxia     *");
          		System.out.println("*  ¡Cuidado que ahora hay mas asteroides!    *");
          		System.out.println("*                                            *"); 
@@ -293,7 +255,6 @@ public static void main (String[] args) throws InterruptedException  {
      		}//if nivel 3
 
     		if (nivel==4) {
-         		System.out.println("*                                            *");
          		System.out.println("*   Se ha desbloqueado una nueva galaxia     *");
          		System.out.println("*  ten cuidado con Roger el extraterrestre   *");
          		System.out.println("*                                            *");
@@ -301,9 +262,54 @@ public static void main (String[] args) throws InterruptedException  {
      		}//if nivel 4
     		
     		  if (nivel>4) {
-           		System.out.println("*                                            *");
-           		System.out.println("*      ¡Has superado todos los niveles!      *");
-           		System.out.println("*                                            *");
+     		     ventana3.open();
+  
+         		String nombre;
+     			Jugador nuevo = new Jugador(nombre=ventana3.respuesta);
+     			
+         		if(!jugadores.contains(nuevo)){
+         			jugadores.add(nuevo);
+         		}
+         		System.out.println("**********************************************");
+     			System.out.println("*                                            *");
+     			System.out.println("*         Ranking de puntuaciones:           *");
+     			System.out.println("*                                            *");
+         		for(Jugador j : jugadores){
+         			if(j.equals(nuevo))
+         				j.getPuntuaciones().add(m.getPuntuacion());
+         			for(Integer i : j.getPuntuaciones()){
+         				puntuacion =m.getPuntuacion();
+         					System.out.println("* ->  Jugador: "+j.getNombre()+ " con puntuacion: "+i);
+         			}
+         		}
+         		
+         		 ventana3.dispose();
+         		 
+         		 
+         		// ventana4.open();
+         		System.out.println("*                                            *");
+         		System.out.println("*    ¿Quiere actualizar las puntuaciones?    *");
+         		System.out.println("*                                            *");
+         		String respuesta = sc.nextLine();
+         		
+         		if(respuesta.equals(si)){
+         			System.out.println("*                                            *");
+    				System.out.println("*     Puntuaciones guardadas correctamente   *");
+    				System.out.println("*                                            *");
+         			for(Jugador j : jugadores){
+         				int contador = 1;
+         				i=j.getPuntuaciones().iterator();
+         		
+    					if(respuesta.equals("no")){
+             				while(i.hasNext()) {
+             					if(contador>3) {
+             						if(i!=null)
+             							j.getPuntuaciones().remove(i);
+             					}
+             				}contador=contador+1;
+    					}			
+         			}
+         		}
          		System.out.println("**********************************************");
     		    System.out.println("*                                            *");
          		System.out.println("*   ¿Deseas exportar fichero de jugadores?   *");
@@ -319,7 +325,7 @@ public static void main (String[] args) throws InterruptedException  {
      			System.out.println("*                                            *");
          		System.out.println("**********************************************");
          		System.out.println("*                                            *");
-         		System.out.println("*  ¡¡ Ahora el universo estará tranquilo !!  *");
+         		System.out.println("*  Ahora el universo estara tranquilo !!     *");
          		System.out.println("*                                            *");
          		System.out.println("**********************************************");
          			
@@ -327,4 +333,3 @@ public static void main (String[] args) throws InterruptedException  {
     		    }
 	      }// while mas partidas
 	}
-}
