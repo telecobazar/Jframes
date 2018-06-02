@@ -2,7 +2,7 @@
 public class Desventaja extends Actor {
 	
 	 private int velocidadDesventaja = 0;
-	 	char tecla
+	 	char tecla;
 	    int a;
 
 	    /**
@@ -15,7 +15,8 @@ public class Desventaja extends Actor {
 	    public Desventaja(Rectangulo rectangulo, String ficheroImagen, Escenario escenario, int velocidadDesventaja){
 	        super(rectangulo, ficheroImagen, escenario);
 	        if(velocidadDesventaja >= 0){
-	            throw new IllegalArgumentException("La velocidad es menor o igual a 0.");
+	        	velocidadDesventaja = 2;
+		        this.velocidadDesventaja = velocidadDesventaja;
 	        }
 	        this.velocidadDesventaja = velocidadDesventaja;
 	    }
