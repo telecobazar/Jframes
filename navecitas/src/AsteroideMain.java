@@ -97,7 +97,7 @@ public static void main (String[] args) throws InterruptedException  {
 	     Rectangulo r4 = new Rectangulo(c3,40,40); 						 // Rectangulo para pintar los asteroides  
 	     Rectangulo r5 = new Rectangulo(c4,60,60);						 // Rectangulo para pintar una nave extraterrestre 
 	     Rectangulo r6 = new Rectangulo(c5,100,100);					 // Rectangulo para pintar a Roger el extraterrestre
-	     Rectangulo r7 = new Rectangulo(c1,30,40);					     // Rectangulo para pintar la bala
+	     Rectangulo r7 = new Rectangulo(c1,20,40);					     // Rectangulo para pintar la bala
 	     
 	  // Creamos las naves y asteroides 
    	  
@@ -333,3 +333,4 @@ public static void main (String[] args) throws InterruptedException  {
     		    }
 	      }// while mas partidas
 	}
+}
